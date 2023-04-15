@@ -1,0 +1,34 @@
+﻿@model IEnumerable<MelikeArslan_211103031.DAL.Galeri>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPage1_Admin.cshtml";
+}
+
+<h2>Galeri</h2>
+
+<p>
+    @Html.ActionLink("Yeni Ekle", "Create", null, new { @class = "btn btn-primary" }) 
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.resimyolu)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            <img src="@item.resimyolu" width="60" height="60"/> 
+        </td>
+        <td>
+            @Html.ActionLink("Ekle", "Edit", new { id = item.id }, new { @class = "btn btn-success" })  |
+            @Html.ActionLink("Detaylar", "Details", new { id = item.id }, new { @class = "btn btn-warning" })  |
+            @Html.ActionLink("Sil", "Delete", new { id = item.id }, new { @class = "btn btn-danger" }) 
+        </td>
+    </tr>
+}
+
+</table>

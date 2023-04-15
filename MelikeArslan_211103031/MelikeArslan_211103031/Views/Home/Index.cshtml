@@ -1,0 +1,445 @@
+﻿@using MelikeArslan_211103031.DAL;
+@{
+    Layout = null;
+}
+
+
+    <!DOCTYPE html>
+    <html lang="tr" region="tr">
+
+    <!-- Mirrored from www.drahmetsenses.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 02 Jan 2023 11:29:54 GMT -->
+    <!-- Added by HTTrack -->
+    <head>
+        <!-- Meta -->
+
+
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Uzm. Dr. Ahmet Şenses - Çocuk ve ergen psikiyatrisi, Aydın</title>
+        <meta name="description" content="Ege Üniversitesi Tıp Fakültesinde okudu. Uzmanlık eğitimini Samsun Ondokuz Mayıs Üniversitesi&#039;n de tamamladı. 2012-2013 yıllarında Isparta, 2014-2015  yıllarında Aydın Devlet Hastenesi&#039;de görev yaptıktan sonra 2016 yılında itibaren AYDIN&#039;da kendine ait kliniğinde hizmet vermeye devam etmektedir." />
+
+        <!-- Favicons -->
+
+        <link rel="shortcut icon" href="~/img/favicons/favicon6e14.png">
+        <link rel="apple-touch-icon" href="~/img/favicons/favicon_60x606e14.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="~/img/favicons/favicon_76x766e14.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="~/img/favicons/favicon_120x1206e14.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="~/img/favicons/favicon_152x1526e14.png">
+        <!-- Fonts -->
+        <!-- Google Web Fonts -->
+        <link href="http://fonts.googleapis.com/css?family=Titillium+Web:200,300,400,600&amp;subset=latin-ext" rel="stylesheet">
+
+        <!-- CSS Styles -->
+        <link href="~/cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.css" rel="stylesheet" />
+        <link href="~/websites/16/assets/css/styles6e14.css" rel="stylesheet" />
+
+        <!-- CSS Theme -->
+
+        <link data-id="theme" data-selected-template="16" data-selected-theme="teal" href="~/websites/16/assets/css/themes/theme-teal6e14.css" rel="stylesheet"  data-schemes="[]" />
+    </head>
+
+    <body class="header-absolute">
+
+        @{
+            DatabaseModel db = new DatabaseModel();
+
+            var DoktorBilgileri = db.DoktorBilgileri.FirstOrDefault();
+            var Egitim = db.Egitim.FirstOrDefault();
+            var Hastaliklar = db.Hastaliklar.ToList();
+            var iletisim = db.iletisim.FirstOrDefault();
+            var Hizmetler = db.Hizmetler.ToList();
+            var Makaleler = db.Makaleler.ToList();
+            
+
+
+            <!-- Loader -->
+            <div id="page-loader"><span class="loader"></span></div>
+            <!-- Loader / End -->
+            <!-- Content -->
+            <div id="body-outer">
+                <div class="header-container container">
+                    <!-- Header -->
+                    <header id="header">
+
+                        <!-- Avatar -->
+                        <div class="avatar">
+
+                            <img src="@DoktorBilgileri.Resimyolu"  alt="">
+
+                        </div>
+
+                        <!-- Owner -->
+                        <div class="owner">
+                            <span class="name">
+
+                               @DoktorBilgileri.Ad
+                            </span>
+                            <span class="caption">    Çocuk ve Ergen Psikiyatrisi</span>
+                        </div>
+                        <!-- Navigation Bar -->
+                        <ul id="nav-main" class="nav nav-main">
+
+
+                            <li><a href="#home" class="active">Anasayfa</a></li>
+
+
+                            <li class=""><a href="#contact">İletişim</a></li>
+
+                            <li><a href="#prices">Hizmetler</a></li>
+
+
+                            <li><a href="#gallery">Galeri</a></li>
+
+                        </ul>
+                    </header>
+                    <!-- Header / End -->
+                </div>
+                <div id="body-wrapper">
+                    <!-- Content -->
+                    <div id="content">
+                        <!-- Section / Home -->
+                        <section id="home">
+
+                            <!-- Section Inner -->
+                            <div class="section-inner container">
+
+                                <!-- Section Title -->
+                                <div class="section-title animated text-sm-center" data-animation="fadeInDown" data-target="local-scroll">
+                                    <h1 class="mb-0">
+
+
+
+                                        @DoktorBilgileri.Ad
+                                    </h1>
+                                    <h4 class="text-primary mb-20 text-uppercase">    @DoktorBilgileri.Meslegi</h4>
+                                    <div class="location"><i class="ti-location-arrow"></i>@DoktorBilgileri.Konum</div>
+                                    <a href="#schedule" class="btn btn-primary">Randevu Alın</a>
+                                    <a href="#contact" class="btn btn-link">İletişim kurun</a>
+                                </div>
+
+                                <p class="lead">
+                                    @Html.Raw(DoktorBilgileri.Bilgi)
+                                    </p>
+
+                                <div class="masonry row gutters-lg">
+                                    <!-- Masonry Item -->
+                                    <div class="masonry-sizer col-sm-6 col-xs-12"></div>
+                                    <!-- Masonry Item / Szkoly -->
+                                    <div class="masonry-item col-sm-6 col-xs-12">
+                                        <!-- Card -->
+                                        <div class="resume-card">
+                                            <div class="resume-card-inner">
+                                                <div class="title">
+                                                    <i class="flaticon-first-aid-kit-1"></i>
+                                                    <h4>Okullar / Eğitimler</h4>
+                                                </div>
+                                                <ul class="list-custom">
+                                                    @foreach (var item in db.Egitim.ToList())
+                                                    {
+                                                        <li>@item.Okul - @item.Alan,@item.Baslangic-@item.Bitis</li>
+                                                    }
+
+                                                    
+                                                </ul>
+                                            </div>
+                                            <div class="resume-card-overflow">
+                                                <a href="#" class="btn btn-primary btn-sm" data-expand="resume-card">Tümünü göster</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Masonry Item / Choroby -->
+                                    <div class="masonry-item col-sm-6 col-xs-12">
+                                        <!-- Card -->
+                                        <div class="resume-card">
+                                            <div class="resume-card-inner">
+                                                <div class="title">
+                                                    <i class="flaticon-pulse"></i>
+                                                    <h4>Hastalıklar</h4>
+                                                </div>
+                                                <ul class="list-custom">
+
+                                                    @foreach (var item in db.Hastaliklar.ToList())
+                                                    {
+                                                        <li>@item.Hastalik</li>
+                                                    }
+                                                   
+                                                </ul>
+                                            </div>
+                                            <div class="resume-card-overflow">
+                                                <a href="#" class="btn btn-primary btn-sm" data-expand="resume-card">Tümünü göster</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Masonry Item / Artkuły -->
+                                    <div class="masonry-item col-sm-6 col-xs-12">
+                                        <!-- Card -->
+                                        <div class="resume-card">
+                                            <div class="resume-card-inner">
+                                                <div class="title">
+                                                    <i class="flaticon-microscope"></i>
+                                                    <h4> Makaleler</h4>
+                                                </div>
+                                                <ul class="list-posts">
+                                                    @foreach (var item in db.Makaleler.ToList())
+                                                    {
+                                                     <li>
+                                                        <div class="content">
+                                                            <a class="title" href="@item.Makaleyolu">@item.Makaleadi</a>
+                                                        </div>
+                                                     </li>
+                                                    }
+                                                    
+                                                </ul>
+                                            </div>
+                                            <div class="resume-card-overflow">
+                                                <a href="#" class="btn btn-primary btn-sm" data-expand="resume-card">Tümünü göster</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Masonry Item / Social Media -->
+                                    <div class="masonry-item col-sm-6 col-xs-12">
+                                        <!-- Card -->
+                                        <div class="resume-card">
+                                            <div class="resume-card-inner">
+                                                <div class="title">
+                                                    <i class="flaticon-pill"></i>
+                                                    <h4>Sosyal medya hesapları</h4>
+                                                </div>
+                                                <div>
+                                                    <a href="@DoktorBilgileri.sosyal1" rel="nofollow" target="_blank" class="icon-social icon-facebook"><i class="ti-facebook"></i></a>
+                                                    <a href="@DoktorBilgileri.sosyal2" rel="nofollow" target="_blank" class="icon-social icon-instagram"><i class="ti-instagram"></i></a>
+                                                </div>
+                                            </div>
+                                            <div class="resume-card-overflow">
+                                                <a href="#" class="btn btn-primary btn-sm" data-expand="resume-card">Tümünü göster</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </section>
+                        <!-- Section / Contact -->
+                        <section id="contact" class="bg-light">
+
+                            <!-- Section Inner -->
+                            <div class="section-inner container">
+
+                                <!-- Section Title -->
+                                <div class="section-title animated" data-animation="fadeInDown" data-target="local-scroll">
+                                    <h2 class="mb-0">İletişim kurun</h2>
+                                </div>
+
+                                <!-- Contact Box -->
+                                <div class="section-content contact-box">
+                                    <div class="contact-row">
+                                        <div class="contact-content">
+                                            <h4>@iletisim.ad</h4>
+                                            <address>
+                                                @iletisim.Acikadres<br>
+                                            </address>
+                                            <a href="#phones" class="btn btn-primary btn-sm btn-show-phones">Ara</a>
+                                            <div id="phones" class="hidden">
+                                                <h5>Randevu al:</h5>
+                                                <ul class="contact-list">
+                                                    <li><i class="ti-mobile"></i> <a class="link-inherit" href="tel:+90 850 333 0344">@iletisim.Randevuno</a></li>
+                                                </ul>
+                                                <h5>İletişime geç:</h5>
+                                                <ul class="contact-list">
+                                                    <li><i class="ti-mobile"></i> <a class="link-inherit" href="tel:+90 507 885 20 90">@iletisim.telno</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="contact-map placeholder-map">
+                                            <a href="@iletisim.Adresyolu" class="btn btn-sm btn-white" target="_blank">
+                                                haritayı büyüt
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </section>
+                        <!-- Section / Prices --> 
+                        <section id="prices">
+                            <!-- Section Inner -->
+                            <div class="section-inner container">
+                                <!-- Section Title -->
+                                <div class="section-title animated" data-animation="fadeInDown" data-target="local-scroll">
+                                    <h2 class="mb-0">Hizmetler</h2>
+
+                                    @foreach (var item in db.Hizmetler.ToList())  
+                                    {
+                                        <div class="masonry-item col-md-4 col-sm-6 col-xs-12">
+                                            <!-- Price Box -->
+                                            <div class="price-box">
+                                                <span class="icon icon-default"><i class="flaticon-red-cross"></i></span>
+                                                <div class="content">
+                                                    <h4>@item.Hizmet</h4>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    }
+
+                                </div>
+                            </div>
+                                <!-- Section Overflow -->
+                                <div class="section-overflow">
+                                    <div class="section-inner container">
+                                        <a href="#" class="btn btn-primary btn-sm" data-expand="section">Tümünü göster</a>
+                                    </div>
+                                </div>                            
+                         </section>
+
+                        <!-- Section / Gallery -->
+                        <section id="gallery">
+
+                            <!-- Section Inner -->
+                            <div class="section-inner container">
+
+                                <!-- Section Title -->
+                                <div class="section-title animated" data-animation="fadeInDown" data-target="local-scroll">
+                                    <h2 class="mb-0">Galeri</h2>
+                                </div>
+
+                                <div class="row masonry no-padding">
+                                    <!-- Masonry Item -->
+                                    <div class="masonry-sizer col-sm-6 col-xs-12"></div>
+
+                                    @foreach (var item in db.Galeri.ToList())
+                                    {
+
+                                        <!-- Masonry Item -->
+                                        <div class="masonry-item col-sm-6 col-xs-12">
+                                            <!-- Image -->
+
+                                            <div class="image-card">
+                                                <a href="@item.resimyolu" rel="fancybox" class="image">
+                                                    <img src="@item.resimyolu" alt="">
+                                                </a>
+                                                <div class="hover">
+                                                    <span class="icon icon-square icon-primary icon-hover">
+                                                        <i class="ti-search"></i>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                          
+                                        </div>
+                                     }
+                                      
+                                </div>
+
+
+                            </div>
+
+                        </section>
+                    </div>
+
+                            <!-- Section Overflow -->
+                            <div class="section-overflow">
+                                <div class="section-inner container">
+                                    <a href="#" class="btn btn-primary btn-sm" data-expand="section">Tümünü göster</a>
+                                </div>
+                            </div>
+
+                     
+
+                        <!-- Section / Action -->
+                        <section id="action" class="dark">
+                            <!-- Section Inner -->
+                            <div class="section-inner container">
+                                <div class="row animated text-sm-center" data-animation="fadeIn" data-target="local-scroll">
+                                    <div class="image-icon col-sm-2">
+                                        <i class="flaticon-form"></i>
+                                    </div>
+                                    <div class="col-sm-10">
+                                        <h2>Randevu almak ister misiniz?</h2>
+                                        <a href="#contact" class="btn btn-white">Randevu Alın</a>
+                                        <a href="#contact" class="btn btn-link">İletişim kurun</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                   
+                    
+                    <!-- Footer -->
+                    <footer id="footer" class="text-sm-center">
+                        <strong>DocPlanner.com</strong>  &copy; 2023
+                    </footer>
+                    <!-- Footer / End -->
+                </div>
+
+                <!-- Button Sign Up -->
+                <a href="#schedule" id="btn-sign-up">Randevu Alın</a>
+            </div>
+
+            <!-- Back to Top -->
+            <a href="#" id="back-to-top" class="icon icon-circle icon-sm icon-white"><i class="ti-angle-up"></i></a>
+
+            <!-- Mobile Footer -->
+            <footer id="mobile-footer">
+                <a href="#schedule" class="primary"><i class="i-before ti-calendar"></i>Randevu al</a>
+            </footer>
+            <!-- Content / End -->
+            <!-- JavaScripts -->
+            <script>
+                var DPWebsitesApp = {
+            Const: {
+                SITENAME: 'DoktorTakvimi.com',
+                        WEBSITE_TEMPLATE_ID: '16',
+                        CURRENT_ROUTE: 'website',
+                        WEBSITE_ASSETS_ROUTE: '/websites/16/assets/',
+                        URL_TO_PREVIEW: '//tr.web.docplanner.me/preview',
+                        REQUIRE_TERMS_ACCEPT: false
+                    },
+                    Lang: {
+                    'domain_available': 'Domain adı müsait',
+                        'domain_unavailable': 'Domain adı kullanımda',
+                        'checking': 'Kontrol ediliyor...',
+                        'checking_domains': 'Müsait web sitesi adreslerini kontrol ediyoruz...',
+                        'error_try': 'Hata oluştu, tekrar deneyin',
+                        'website_buying_process_step_1': 'Alan adı satın alıyoruz',
+                        'website_buying_process_step_2': 'İnternet sitenizi yapılandırıyoruz',
+                        'website_buying_process_step_3': 'Dosyalarınızı yüklüyoruz',
+                        'website_buying_process_step_4': 'Web sitenizi yayına uygun hale getiriyoruz',
+                        'website_buying_process_headline': 'Şu anda web siteniz üzerinde çalışıyoruz',
+                        'update_in_progress': 'Güncelleniyor...',
+                        'update': 'Güncelle',
+                        'error': 'Hata',
+                        'forward': 'İleri',
+                        'common_step_backward': 'Önceki',
+                        'lets_start': 'Başla!',
+                        'websites_tour_step_1': 'Uygun şablon ve renk şeması seçin',
+                        'websites_tour_step_2': '%{sitename} üzerindeki profilinizi düzenleyerek web sitesindeki bilgileri güncelleyin',
+                        'websites_tour_step_3': 'Alan adı seç ve web siteni internette yayınla!',
+                        'refreshing': 'Yenileniyor...',
+                        'check_availability': 'Uygunluğu kontrol et',
+                        'not_a_client_error': 'Hizmet sadece % {siteadı} profili sahipleri tarafından ulaşılabilir',
+                    }
+            }</script>
+
+            <!-- JS Libraries -->
+
+            <script src="~/websites/16/assets/js/jquery.min6e14.js"></script>
+
+            <!-- JS Plugins per template -->
+            <script src="~/websites/16/assets/js/plugins6e14.js"></script>
+            <script src="~/cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.js"></script>
+
+
+            <!-- JS Core per template -->
+
+            <script src="~/websites/16/assets/js/core6e14.js"></script>
+
+            <!-- JS shared between templates -->
+
+
+            <script src="~/js/websites6e14.js"></script>
+            <script src="~/js/refreshed_websites6e14.js"></script>
+        }
+    </body>
+
+</html>
+

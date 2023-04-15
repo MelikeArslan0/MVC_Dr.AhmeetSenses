@@ -1,0 +1,57 @@
+﻿@model MelikeArslan_211103031.DAL.Egitim
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutPage1_Admin.cshtml";
+}
+
+
+<h3>Silmek istiyormusunuz?</h3>
+<div>
+    <h4>Egitim</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Okul)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Okul)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Alan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Alan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Baslangic)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Baslangic)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Bitis)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Bitis)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Sil" class="btn btn-default" /> |
+            
+          @Html.ActionLink("Listeye geri Dön", "Index", null, new { @class = "btn btn-primary" })
+        </div>
+    }
+</div>

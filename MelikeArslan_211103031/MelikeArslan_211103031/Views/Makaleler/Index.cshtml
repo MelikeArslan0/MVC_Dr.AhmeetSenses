@@ -1,0 +1,44 @@
+﻿@model IEnumerable<MelikeArslan_211103031.DAL.Makaleler>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPage1_Admin.cshtml";
+}
+
+<h2>Makaleler</h2>
+
+<p>
+    @Html.ActionLink("Yeni Ekle", "Create",null, new {@class="btn btn-primary"})
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Makaleadi)
+        </th>
+        <th>
+            <div style="display:none">
+                @Html.DisplayNameFor(model => model.Makaleyolu)
+       </div>
+                </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Makaleadi)
+        </td>
+        <td>
+            <div style="display:none">
+                @Html.DisplayFor(modelItem => item.Makaleyolu)
+            </div>
+        </td>
+        <td>
+            @Html.ActionLink("Ekle", "Edit", new { id = item.id }, new { @class = "btn btn-success" })  |
+            @Html.ActionLink("Detaylar", "Details", new { id = item.id }, new { @class = "btn btn-warning" })  |
+            @Html.ActionLink("Sil", "Delete", new { id = item.id }, new { @class = "btn btn-danger" }) 
+        </td>
+    </tr>
+}
+
+</table>

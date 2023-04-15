@@ -1,0 +1,35 @@
+﻿@model MelikeArslan_211103031.DAL.Makaleler
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutPage1_Admin.cshtml";
+}
+
+<h2>Detaylar</h2>
+
+<div>
+    <h4>Makaleler</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Makaleadi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Makaleadi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Makaleyolu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Makaleyolu)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Ekle", "Edit", new { id = Model.id }, new { @class = "btn btn-success" }) |
+    @Html.ActionLink("Listeye geri Dön", "Index", null, new { @class = "btn btn-primary" })
+</p>

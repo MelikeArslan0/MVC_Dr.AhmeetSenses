@@ -1,0 +1,64 @@
+﻿@model IEnumerable<MelikeArslan_211103031.DAL.iletisim>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPage1_Admin.cshtml";
+}
+
+<h2>İletişim Bilgileri</h2>
+
+<p>
+    @Html.ActionLink("Yeni Ekle", "Create",null,new {@class="btn btn-primary"})
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Acikadres)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Randevuno)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.telno)
+        </th>
+        <th>
+
+            <div style="display:none">
+                @Html.DisplayNameFor(model => model.Adresyolu)
+            </div>
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Acikadres)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Randevuno)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.telno)
+        </td>
+        <td>
+
+            <div style="display:none">
+                @Html.DisplayFor(modelItem => item.Adresyolu)
+                </div>
+        </td>
+        <td>
+            @Html.ActionLink("Ekle", "Edit", new { id = item.id }, new { @class = "btn btn-success" }) |
+            @Html.ActionLink("Detaylar", "Details", new { id = item.id }, new { @class = "btn btn-warning" })  |
+          
+        </td>
+    </tr>
+}
+
+</table>

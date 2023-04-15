@@ -1,0 +1,75 @@
+﻿@model MelikeArslan_211103031.DAL.DoktorBilgileri
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutPage1_Admin.cshtml";
+}
+
+<h2>Detaylar</h2>
+
+<div>
+    <h4>DoktorBilgileri</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Ad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Meslegi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Meslegi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Konum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Konum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Resimyolu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Resimyolu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Bilgi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Bilgi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sosyal1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sosyal1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sosyal2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sosyal2)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Ekle", "Edit", new { id = Model.id }, new { @class = "btn btn-success" }) |
+    @Html.ActionLink("Listeye geri Dön", "Index",null, new {@class="btn btn-primary"})
+</p>

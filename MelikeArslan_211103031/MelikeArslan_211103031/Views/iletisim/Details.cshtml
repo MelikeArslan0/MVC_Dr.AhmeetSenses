@@ -1,0 +1,59 @@
+﻿@model MelikeArslan_211103031.DAL.iletisim
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutPage1_Admin.cshtml";
+}
+
+<h2>Detaylar</h2>
+
+<div>
+    <h4>iletisim</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Acikadres)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Acikadres)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Randevuno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Randevuno)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.telno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.telno)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Adresyolu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Adresyolu)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Ekle", "Edit", new { id = Model.id }, new { @class = "btn btn-success" }) |
+    @Html.ActionLink("Listeye geri Dön", "Index", null, new { @class = "btn btn-primary" })
+</p>
